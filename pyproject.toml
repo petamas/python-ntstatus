@@ -30,5 +30,5 @@ license = "MIT"
 license-files = ["LICENSE"]
 
 [project.urls]
-"Homepage" = "https://github.com/petamas/py-ntstatus"
-"Bug Tracker" = "https://github.com/petamas/py-ntstatus/issues"
+"Homepage" = "https://github.com/petamas/python-ntstatus"
+"Bug Tracker" = "https://github.com/petamas/python-ntstatus/issues"

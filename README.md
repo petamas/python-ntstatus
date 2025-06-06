@@ -1,6 +1,6 @@
-# py-ntstatus
+# ntstatus
 
-`py-ntstatus` is a library that defines a Python enum to represent [WinAPI NTSTATUS values](https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/using-ntstatus-values).
+`ntstatus` is a library that defines a Python enum to represent [WinAPI NTSTATUS values](https://learn.microsoft.com/en-us/windows-hardware/drivers/kernel/using-ntstatus-values).
 
 ## ntstatus.NtStatus
 
