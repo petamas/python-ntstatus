@@ -108,6 +108,7 @@ class NtStatus(Enum):
         status == status.signed_value returns True for all NtStatus values.
         """
 
+        assert isinstance(self.value, ThirtyTwoBits) # mypy can't deduce that NtStatus.value is always a ThirtyTwoBits
         return self.value.signed_value
 
     @property
@@ -118,6 +119,7 @@ class NtStatus(Enum):
         status == status.usigned_value returns True for all NtStatus values.
         """
 
+        assert isinstance(self.value, ThirtyTwoBits) # mypy can't deduce that NtStatus.value is always a ThirtyTwoBits
         return self.value.unsigned_value
 
     @property
@@ -143,7 +145,10 @@ class NtStatus(Enum):
         In the latter case, returns True for both the signed and unsigned interpretation of the underlying 32 bits.
         """
 
+        assert isinstance(self.value, ThirtyTwoBits) # mypy can't deduce that NtStatus.value is always a ThirtyTwoBits
+
         if isinstance(other, NtStatus):
+            assert isinstance(other.value, ThirtyTwoBits) # mypy can't deduce that NtStatus.value is always a ThirtyTwoBits
             return self.value == other.value
 
         if isinstance(other, ThirtyTwoBits):
