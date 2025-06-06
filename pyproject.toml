@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "ntstatus"
 version = "1.0"
 authors = [
-	{ name="Tamás PEREGI", email="petamas@gmail.com" },
+    { name="Tamás PEREGI", email="petamas@gmail.com" },
 ]
 description = "Python enum for NTSTATUS from WinAPI, supporting comparision to both signed and unsigned integers"
 readme = "README.md"
