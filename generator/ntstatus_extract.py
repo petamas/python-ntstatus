@@ -59,7 +59,7 @@ def main() -> None:
     ntstatus_h = Path(sys.argv[1])
     values = parse_values(ntstatus_h)
 
-    ntstatus_py = Path(__file__).parent.parent / 'ntstatus' / '__init__.py'
+    ntstatus_py = Path(__file__).parent.parent / 'ntstatus' / '_ntstatus.py'
 
     lines, indent = read_script(ntstatus_py)
     for value, name in sorted(values.items()):
