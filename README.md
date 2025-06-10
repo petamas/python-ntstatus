@@ -20,6 +20,32 @@ The complete list of NTSTATUS values can be found [here](https://learn.microsoft
 - `STATUS_ABANDONED_WAIT_n`, where `n` is 0 and 63
 - `STATUS_FLT_DISALLOW_FSFILTER_IO`
 
+## `ntstatus.Win32Error`
+
+This class defines all named [WinAPI "Win32 Error Code" values](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-erref/18d8fbe8-a967-4f1c-ae50-99ca8e491d2d) as attributes. While the name is similar, it's different from both `WindowsError` (an alias to `OSError`) and `ctypes.WinError` (a factory function for creating `OSError`s on Windows).
+
+Constants are represented using the `ntstatus.ThirtyTwoBits` class which can be equality-compared to integers; the comparision will return True for both the signed and unsigned interpretation of the underlying 32 bits. (Note that Win32 Error Codes are always in the 16-bit 0x000-0xFFFF range, so they can never be negative, but they're represented by `ntstatus.ThirtyTwoBits` for consistency.)
+
+Static methods:
+- `Win32Error.decode(code)`: Looks up an Win32 Error Code constant by its numeric value and returns it as an `ntstatus.ThirtyTwoBits` object, with its name set to the the name of the constant. Returns `None` if argument is not a known Win32 Error Code constant.
+- `Win32Error.decode_name(code, default='')`: Returns the name of the Win32 Error Code constant associated with the first argument if there is such a value. Otherwise, returns the second argument.
+- `Win32Error.make(code)`: Looks up an Win32 Error Code constant by its numeric value and returns it as an `ntstatus.ThirtyTwoBits` object, with its name set to the the name of the constant. Raises `ValueError` if argument is not a known Win32 Error Code constant.
+
+The semi-complete list of Win32 Error Codes can be found [here](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-erref/18d8fbe8-a967-4f1c-ae50-99ca8e491d2d) and [here](https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes). `Win32Error` encodes all of them defined in `winerror.h`.
+
+## `ntstatus.HResult`
+
+This class defines all named [HRESULT values](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-erref/0642cb2f-2075-4469-918c-4441e69c548a) as attributes.
+
+Constants are represented using the `ntstatus.ThirtyTwoBits` class which can be equality-compared to integers; the comparision will return True for both the signed and unsigned interpretation of the underlying 32 bits.
+
+Static methods:
+- `HResult.decode(code)`: Looks up an HRESULT constant by its numeric value and returns it as an `ntstatus.ThirtyTwoBits` object, with its name set to the the name of the constant. Returns `None` if argument is not a known HRESULT constant.
+- `HResult.decode_name(code, default='')`: Returns the name of the HRESULT value associated with the first argument if there is such a value. Otherwise, returns the second argument.
+- `HResult.make(code)`: Looks up an HRESULT constant by its numeric value and returns it as an `ntstatus.ThirtyTwoBits` object, with its name set to the the name of the constant. Raises `ValueError` if argument is not a known HRESULT value.
+
+The semi-complete list of HRESULT values can be found [here](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-erref/705fb797-2175-4a90-b5a3-3918024b10b8). `HResult` encodes all of them defined in `winerror.h`, plus the HRESULT version of all NTSTATUS values and Win32 Error Codes exposed by `ntstatus.NtStatus` and `ntstatus.Win32Error`.
+
 ## `ntstatus.ThirtyTwoBits`
 
 This class represents 32 bits that can be interpreted either as a signed or unsigned 32-bit integer, with an additional name field.
