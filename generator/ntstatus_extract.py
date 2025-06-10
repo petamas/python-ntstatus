@@ -63,7 +63,7 @@ def main() -> None:
 
     lines, indent = read_script(ntstatus_py)
     for value, name in sorted(values.items()):
-        lines.append(f'{indent}{name} = ThirtyTwoBits(0x{value:08X})')
+        lines.append(f'{indent}{name}: Final[ThirtyTwoBits] = cached_ntstatus(0x{value:08X}, \'{name}\')')
 
     ntstatus_py.write_text('\n'.join(lines) + '\n')
 
