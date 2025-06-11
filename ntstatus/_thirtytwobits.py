@@ -17,7 +17,7 @@ class ThirtyTwoBits:
     - name: Name that can be used to refer to the value in human contexts. Typically the name of a WinAPI constant.
 
     Static methods:
-    - `ThirtyTwoBits.check(value)`: Checks if `value` can be represented as a 32-bit signed or unsigned integer. If `value` is not an `int`, raises `TypeError`. If `value` is an `int`, but it cannot fit into 32 bits, raises `ValueError`.
+    - `ThirtyTwoBits.check(value)`: Checks if `value` can be represented as a 32-bit signed or unsigned integer. If `value` is not an `int`, raises `TypeError`. If `value` is an `int`, but it cannot fit into 32 bits, raises `ValueError`.
     """
 
     @staticmethod
